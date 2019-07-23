@@ -298,7 +298,6 @@ Resources:
                     aws s3 cp s3://my-example-website /app/ --recursive
                     docker run -l service=nginx --name nginx-app -p 80:80 -d -v /app/:/usr/share/nginx/html nginx
             ImageId: ami-00c0dfcea257c912e
-            KeyName: project-infra
             IamInstanceProfile: !Ref RootInstanceProfile
             SecurityGroups:
             -   Ref: WebServerSecGroup
