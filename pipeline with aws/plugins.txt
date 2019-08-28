@@ -1,0 +1,5 @@
+bitbucket-oauth:0.9
+publish-to-bitbucket:0.4
+docker-plugin:1.1.7
+ssh:2.6.1
+pipeline-aws:1.38
