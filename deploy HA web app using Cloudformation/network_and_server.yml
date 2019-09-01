@@ -36,7 +36,7 @@ Parameters:
         Description: 
             "The EC2 instance type of general purpose"
         Type: String
-        AllowedValues: [t3.nano, t3.micro, t3.small, t3.medium, t3.large, t3.xlarge, t3.2xlarge]
+        AllowedValues: [t2.medium, t3.small, t3.nano, t3.micro, t3.small, t3.medium, t3.large, t3.xlarge, t3.2xlarge]
 
 
 Resources:
@@ -226,8 +226,8 @@ Resources:
                     -   s3:Get*
                     -   s3:List*
                     Resource: 
-                    -   arn:aws:s3:::my-example-website
-                    -   arn:aws:s3:::my-example-website/*
+                    -   arn:aws:s3:::c3pipelines-devops
+                    -   arn:aws:s3:::c3pipelines-devops/*
             Roles:
             -   Ref: RootRole
 
@@ -295,9 +295,10 @@ Resources:
                     usermod -aG docker ubuntu
                     mkdir /app/
                     chmod 777 -R /app/
-                    aws s3 cp s3://my-example-website /app/ --recursive
+                    aws s3 cp s3://c3pipelines-devops /app/ --recursive
                     docker run -l service=nginx --name nginx-app -p 80:80 -d -v /app/:/usr/share/nginx/html nginx
-            ImageId: ami-00c0dfcea257c912e
+            ImageId: ami-052ae783527d1a0c9
+            KeyName: platforms-key
             IamInstanceProfile: !Ref RootInstanceProfile
             SecurityGroups:
             -   Ref: WebServerSecGroup
@@ -328,7 +329,7 @@ Resources:
             - !Ref PrivateSubnet2 
             LaunchConfigurationName:
                 Ref: WebAppLaunchConfig
-            MinSize: '4'
+            MinSize: '2'
             MaxSize: '5'
             TargetGroupARNs:
             -   Ref: WebAppTargetGroup
@@ -339,8 +340,8 @@ Resources:
             SecurityGroups:
             - Ref: LoadBalancerSecGroup
             Subnets:
-            - !Ref PrivateSubnet1
-            - !Ref PrivateSubnet2
+            - !Ref PublicSubnet1
+            - !Ref PublicSubnet2
     Listener:
         Type: AWS::ElasticLoadBalancingV2::Listener
         Properties:
