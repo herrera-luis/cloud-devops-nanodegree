@@ -2,4 +2,4 @@
 
 The cloud is perfect for hosting static websites that only include HTML, CSS, and JavaScript files that require no server-side processing. In this project, you will deploy a static website to AWS. First, you will create a S3 bucket, configure the bucket for website hosting, and secure it using IAM policies. Next, you will upload the website files to your bucket and speed up content delivery using AWS’s content distribution network service, CloudFront. Lastly, you will access your website in a browser using the unique S3 endpoint.
 
-Inside of folder image you can see the results of each step
+Inside folder [images](https://github.com/herrera-luis/cloud-devops-nanodegree/tree/master/deploy%20static%20website%20on%20AWS/images) you can see the results of each step

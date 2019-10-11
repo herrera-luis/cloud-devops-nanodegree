@@ -11,3 +11,5 @@ The complete Cloudformation script is: **network_and_server.yml**
 For deploy the stack just run: 
 
     sh create.sh InfraProject network_and_server.yml network_and_server.json
+    
+Inside folder [images](https://github.com/herrera-luis/cloud-devops-nanodegree/tree/master/deploy%20HA%20web%20app%20using%20Cloudformation/images) you can see the results of script execution
