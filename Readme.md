@@ -9,3 +9,4 @@ This repository is the recompilation of Cloud DevOps Nanodegree projects, inside
     2) Deploy a high-availability web app using cloudFormation
     3) Pipeline with AWS integration
     4) Operationalize a machine learning microservice API
+    5) Capstone project
